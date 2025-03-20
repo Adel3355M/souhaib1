@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord Administrateur</title>
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="projet.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0439aa;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        .stat-box {
+            background-color: #00c7cc;
+            color: black;
+            padding: 20px;
+            width: 30%;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .btn {
+            display: block;
+            width: 250px;
+            margin: 30px auto;
+            padding: 12px;
+            background-color: #00b0b0;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #008080;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bienvenue,Souhaib</h1>        
+        <!-- Section Statistiques -->
+        <div class="stats">
+            <div class="stat-box">
+                <h3>Utilisateurs</h3>
+                <p>1,500</p>
+            </div>
+            <div class="stat-box">
+                <h3>Visites</h3>
+                <p>10</p>
+            </div>
+            <div class="stat-box">
+                <h3>Pages vues</h3>
+                <p>25</p>
+            </div>
+        </div>
+
+        <!-- Derniers utilisateurs -->
+        <div>
+            <h2>Derniers utilisateurs enregistrés</h2>
+            <ul>
+                <li>Adel</li>
+                <li>Enzo</li>
+                <li>Laurentiu</li>
+            </ul>
+        </div>
+
+        <!-- Bouton de déconnexion -->
+        <button class="btn" onclick="logout()">Se déconnecter</button>
+    </div>
+
+    <script>
+        function logout() {
+            window.location.href = "login.html";
+        }
+    </script>
+<script>
+    // Vérifier si l'utilisateur a bien fait la connexion
+    if (!sessionStorage.getItem("user")) {
+        alert("Vous devez d'abord vous connecter !");
+        window.location.href = "login.html";
+    }
+</script>
+<script>
+    function logout() {
+        sessionStorage.removeItem("user"); // Supprime l'utilisateur connecté
+        window.location.href = "index.html"; // Redirige vers la connexion
+    }
+</script>
+<a href="index.html" class="btn">Voir le projet</a>
+</body>
+</html>
